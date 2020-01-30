@@ -33,11 +33,11 @@ namespace UserService.Controllers
             return Ok(motorista);
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult> Login([FromBody] MotoristaDTO motorista)
+        [HttpGet("token/all/motoristas")]
+        public async Task<ActionResult<List<String>>> GetAllTokens()
         {
-            await _usuarioService.SalvarMotorista(motorista);
-            return Ok(motorista);
+            var tokens = await _usuarioService.obterTokenMotorista();
+            return Ok(tokens);
         }
     }
 }

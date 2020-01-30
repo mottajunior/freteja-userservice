@@ -24,6 +24,7 @@ namespace UserService.Infra.ContextMap
             builder.Property(u => u.Telefone).IsRequired().HasColumnName("telefone").HasColumnType("varchar(25)");
             builder.Property(u => u.Cep).IsRequired().HasColumnName("cep").HasColumnType("varchar(20)");
             builder.Property(u => u.Cnh).HasColumnType("INT");
+            builder.Property(u => u.DeviceToken).HasColumnType("varchar(200)").HasColumnName("device_token");
             builder.HasOne(u => u.Perfil).WithMany(p => p.Usuarios).HasForeignKey(u => u.IdProfile);
         }
     }

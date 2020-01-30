@@ -16,5 +16,6 @@ namespace UserService.Domain.DTO
         public string Bairro { get; set; }
         public string Telefone { get; set; }
         public string Cep { get; set; }
+        public string DeviceToken { get; set; }
     }
 }

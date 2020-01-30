@@ -4,6 +4,7 @@ using UserService.Domain.IRepositories;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace UserService.Infra.Repositories
 {
@@ -17,6 +18,15 @@ namespace UserService.Infra.Repositories
                 .AsNoTracking()
                 .Where(usuario => usuario.Email == email && usuario.Senha == senha)
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<List<Usuario>> GetAllMotoristas()
+        {
+            return await _context.Usuarios
+            .AsNoTracking()
+            .Where(usuario => usuario.IdProfile == 2)
+            .ToListAsync();
+
         }
     }
 }

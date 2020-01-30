@@ -17,13 +17,15 @@ namespace UserService.Domain.Entities
         public string Telefone { get; set; }
         public int? Cnh { get; set; }
         public string Cep { get; set; }
+        public string DeviceToken { get; set; }
         public virtual Perfil Perfil { get; set; }
         public virtual ICollection<Veiculo> Veiculos { get; set; }
         public Usuario(int id, string nome, string email, string senha, int idProfile, string endereco, string cidade,
-        string numeroResidencia, string telefone, string cep, int? cnh, string bairro) : base(id)
+        string numeroResidencia, string telefone, string cep, int? cnh, string bairro, string deviceToken) : base(id)
         {
             this.Nome = nome;
             this.Senha = senha;
+            this.DeviceToken = deviceToken;
             this.Email = email;
             this.IdProfile = idProfile;
             this.Endereco = endereco;

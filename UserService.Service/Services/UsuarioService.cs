@@ -32,5 +32,10 @@ namespace UserService.Service.Services
             motorista.Veiculos.First().IdUsuario = await _usuarioRepository.SaveReturningId(UsuarioFactory.createFromMotorista(motorista));
             await _veiculoRepository.Save(VeiculoFactory.createFromVeiculo(motorista.Veiculos.First()));
         }
+        public async Task<List<String>> obterTokenMotorista()
+        {
+            var usuarios = await _usuarioRepository.GetAllMotoristas();
+            return UsuarioFactory.extractDevicesToken(usuarios);
+        }
     }
 }
