@@ -39,5 +39,12 @@ namespace UserService.Controllers
             var tokens = await _usuarioService.obterTokenMotorista();
             return Ok(tokens);
         }
+
+        [HttpGet("{id}")]
+        public Usuario GetUsuarioById(int id)
+        {
+            var usuario = _usuarioService.getUsuarioById(id);
+            return usuario;
+        }
     }
 }
