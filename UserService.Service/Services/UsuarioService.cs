@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserService.Domain.DTO;
+using UserService.Domain.Entities;
 using UserService.Domain.Factories;
 using UserService.Domain.IRepositories;
 
@@ -36,6 +37,12 @@ namespace UserService.Service.Services
         {
             var usuarios = await _usuarioRepository.GetAllMotoristas();
             return UsuarioFactory.extractDevicesToken(usuarios);
+        }
+
+        public Usuario getUsuarioById(int id)
+        {
+            var usuario = _usuarioRepository.Get(id);
+            return usuario;
         }
     }
 }

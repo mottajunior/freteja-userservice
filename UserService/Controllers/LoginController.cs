@@ -21,7 +21,7 @@ namespace UserService.Controllers
         {
             var user = await _usuarioRepository.Login(email, senha);
             if (user != null)
-                return Ok("Login realizado com sucesso");
+                return Ok(user);
             else
                 return NotFound("Login ou senha inválido");
         }
